@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package hello;
+
+service HelloService {
+  rpc FindOne (HelloById) returns (Hello);
+  rpc FindMany (stream HelloById) returns (stream Hello);
+}
+
+message HelloById {
+  int32 id = 1;
+}
+
+message Hello {
+  int32 id = 1;
+  string name = 2;
+}
